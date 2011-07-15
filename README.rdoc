@@ -1,0 +1,7 @@
+= exceptio-ruby
+
+* http://github.com/kickcode/exceptio-ruby
+
+== DESCRIPTION:
+
+exceptio-ruby provides a Ruby client for the ExceptIO error notification service (http://except.io). It also provides a hook to automate exception notifications for Rails 2.3 and Rails 3. The client class itself can be used with any other type of Ruby application.
