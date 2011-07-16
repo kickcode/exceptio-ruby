@@ -16,7 +16,7 @@ spec = Gem::Specification.new do |s|
   s.has_rdoc          = true
   s.extra_rdoc_files  = %w(README.rdoc)
 
-  s.files             = %w(exceptio-ruby.rb README.rdoc) + Dir.glob("{lib}/**/*")
+  s.files             = %w(README.rdoc) + Dir.glob("{lib}/**/*")
   s.require_paths     = ["lib"]
 
   s.add_dependency("httparty")
