@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Elliott Draper"]
-  s.date = %q{2011-07-16}
+  s.date = %q{2011-07-17}
   s.email = %q{el@kickcode.com}
   s.extra_rdoc_files = ["README.rdoc"]
-  s.files = ["README.rdoc", "lib/exceptio/client.rb", "lib/exceptio/engine.rb", "lib/exceptio/hooks.rb", "lib/exceptio-ruby.rb", "lib/exceptio.rb"]
+  s.files = ["README.rdoc", "lib/exceptio/client.rb", "lib/exceptio/hooks.rb", "lib/exceptio-ruby.rb", "lib/exceptio.rb"]
   s.homepage = %q{http://except.io/ruby}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
