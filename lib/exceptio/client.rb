@@ -4,11 +4,10 @@ module ExceptIO
   class Client
     include HTTParty
 
-    base_uri 'exceptio.local:3000'
-
-    def self.configure(application, app_key)
+    def self.configure(application, app_key, endpoint = 'except.io')
       @application = application
       @app_key = app_key
+      base_uri endpoint
       if defined?(Rails)
         if Rails.version.starts_with?("2.3")
           ActionController::Base.send(:include, ExceptIO::Hooks::Rails23)
