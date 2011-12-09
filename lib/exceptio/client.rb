@@ -18,7 +18,8 @@ module ExceptIO
     end
 
     def self.log(exception)
-      self.post("/applications/#{@application}/errors", {:query => {:app_key => @app_key}, :body => {:error => {:message => exception.message, :backtrace => exception.backtrace}}})
+      res = self.post("/applications/#{@application}/errors", {:query => {:app_key => @app_key}, :body => {:error => {:message => exception.message, :backtrace => exception.backtrace}}})
+      res.code == 201
     end
   end
 end
