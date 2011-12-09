@@ -4,4 +4,57 @@
 
 == DESCRIPTION:
 
-exceptio-ruby provides a Ruby client for the ExceptIO error notification service (http://except.io). It also provides a hook to automate exception notifications for Rails 2.3 and Rails 3. The client class itself can be used with any other type of Ruby application.
+exceptio-ruby provides a Ruby client for the except.io error notification service (http://except.io).
+
+== FEATURES:
+
+Logs exceptions (error messages and backtraces) to except.io, with automated hooks for Rails 2.3/Rails 3, and a client class that can be used in other Ruby apps.
+
+== SYNOPSIS:
+
+Add to your Gemfile as follows:
+
+  gem 'exceptio-ruby'
+
+Then run "bundle install", and once installed, you can configure your app:
+
+  ExceptIO::Client.configure "app-name", "api-key"
+
+You can find these details in the except.io web app when you setup the application ready to receive error notifications.
+
+== REQUIREMENTS:
+
+exceptio-ruby depends upon httparty.
+
+== INSTALL:
+
+It's best to add the gem to your Gemfile, but if needed you can install it manually:
+
+  gem install exceptio-ruby
+
+== CONTRIBUTORS:
+
+Elliott Draper
+
+== LICENSE:
+
+Copyright 2011 Elliott Draper <el@kickcode.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
