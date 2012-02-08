@@ -1,5 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'httparty'
-gem 'fakeweb'
-gem 'mocha'
+
+group :test do
+  gem 'rake'
+  gem 'fakeweb'
+  gem 'mocha'
+end
