@@ -22,6 +22,16 @@ Then run "bundle install", and once installed, you can configure your app:
 
 You can find these details in the except.io web app when you setup the application ready to receive error notifications.
 
+For Rails 2.3 and Rails 3 apps, exceptions should now automatically track. They will track across all environments by default - you can filter exceptions by environment on the except.io website, or to choose only certain environments to track exceptions on, add this to your initializer:
+
+  ExceptIO::Client.configure "app-name", "api-key" if ["staging", "production"].include?(Rails.env)
+
+If you are using something other than Rails, or have additional areas outside of the controllers that you want to track exceptions for, you can make a call to log an exception directly:
+
+  ExceptIO::Client.log @exception, "environment", params_hash, session_hash
+
+Everything besides the exception itself is optional, with the environment defaulting to "production" if not supplied.
+
 == REQUIREMENTS:
 
 exceptio-ruby depends upon httparty.
