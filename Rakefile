@@ -14,7 +14,7 @@ task :default => ["test"]
 spec = Gem::Specification.new do |s|
 
   s.name              = "exceptio-ruby"
-  s.version           = "0.1.2"
+  s.version           = "0.1.3"
   s.summary           = "Ruby client library for the ExceptIO error notification service, with Rails 2.3/Rails 3 hooks"
   s.author            = "Elliott Draper"
   s.email             = "el@kickcode.com"
