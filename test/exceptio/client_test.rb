@@ -8,17 +8,17 @@ require File.join(File.expand_path(File.dirname(__FILE__)), "..", "..", "lib", "
 class ClientTest < Test::Unit::TestCase
   def setup
     FakeWeb.allow_net_connect = false
-    ExceptIO::Client.configure "testing", "12345"
+    ExceptIO::Client.reset!
   end
 
   def test_exception_log
-    begin
-      raise "testing"
-    rescue Exception => ex
-      @ex = ex
-    end
     expect_http_request
-    assert_equal true, ExceptIO::Client.log(@ex)
+    ExceptIO::Client.configure "testing", "12345"
+    assert_equal true, ExceptIO::Client.log(create_exception)
+  end
+
+  def test_no_configure_exception_log
+    assert_equal false, ExceptIO::Client.log(create_exception)
   end
 
   def expect_http_request
@@ -28,4 +28,13 @@ class ClientTest < Test::Unit::TestCase
       request.path == "/applications/testing/errors?app_key=12345" && request.method == "POST"
     end.returns(response)
   end
+
+  def create_exception
+    begin
+      raise "testing"
+    rescue Exception => ex
+      @ex = ex
+    end
+    @ex
+  end    
 end
