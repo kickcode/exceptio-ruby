@@ -2,13 +2,13 @@ module ExceptIO
   module Hooks
     module Rails23
       def log_error(exception)
-        ExceptIO::Client.log(exception, Rails.env, params, session)
+        ExceptIO::Client.log(exception, Rails.env, params, session, request.url)
       end
     end
 
     module Rails3
       def rescue_to_exceptio(exception = nil)
-        ExceptIO::Client.log(exception, Rails.env, params, session)
+        ExceptIO::Client.log(exception, Rails.env, params, session, request.url)
         raise exception
       end
 

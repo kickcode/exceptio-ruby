@@ -24,9 +24,9 @@ module ExceptIO
       @configured = false
     end
 
-    def self.log(exception, environment = "production", params = {}, session = {})
+    def self.log(exception, environment = "production", params = {}, session = {}, request_url = nil)
       return false unless @configured
-      res = self.post("/applications/#{@application}/errors", {:query => {:app_key => @app_key}, :body => {:error => {:message => exception.message, :backtrace => exception.backtrace, :environment => environment, :params => params, :session => session}}})
+      res = self.post("/applications/#{@application}/errors", {:query => {:app_key => @app_key}, :body => {:error => {:message => exception.message, :backtrace => exception.backtrace, :environment => environment, :params => params, :session => session, :request_url => request_url}}})
       res.code == 201
     end
   end
