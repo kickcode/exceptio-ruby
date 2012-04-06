@@ -2,6 +2,8 @@
 
 * http://github.com/kickcode/exceptio-ruby
 
+{<img src="https://secure.travis-ci.org/kickcode/exceptio-ruby.png" />}[http://travis-ci.org/kickcode/exceptio-ruby]
+
 == DESCRIPTION:
 
 exceptio-ruby provides a Ruby client for the except.io error notification service (http://except.io).
