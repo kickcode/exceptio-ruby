@@ -1,8 +1,8 @@
 = exceptio-ruby
 
-* http://github.com/kickcode/exceptio-ruby
-
 {<img src="https://secure.travis-ci.org/kickcode/exceptio-ruby.png" />}[http://travis-ci.org/kickcode/exceptio-ruby]
+
+* http://github.com/kickcode/exceptio-ruby
 
 == DESCRIPTION:
 
@@ -28,6 +28,20 @@ For Rails 2.3 and Rails 3 apps, exceptions should now automatically track. They 
 
   ExceptIO::Client.configure "app-name", "api-key" if ["staging", "production"].include?(Rails.env)
 
+If you'd like to ignore certain types of exceptions, you can add those exception types to the ignored exceptions list, or override the defaults entirely.
+
+You can see the current defaults with:
+
+  ExceptIO::Client::DEFAULT_IGNORED_EXCEPTIONS
+
+To add other exceptions to this list, you can add a line like this to your initializer:
+
+  ExceptIO::Client.ignored_exceptions << "IgnoredException"
+
+To override the default list entirely, you can add a line like this:
+
+  ExceptIO::Client.ignored_exceptions = ["IgnoredException"]
+
 If you are using something other than Rails, or have additional areas outside of the controllers that you want to track exceptions for, you can make a call to log an exception directly:
 
   ExceptIO::Client.log @exception, "environment", params_hash, session_hash, "http://request/url"
@@ -50,7 +64,7 @@ Elliott Draper
 
 == LICENSE:
 
-Copyright 2011 Elliott Draper <el@kickcode.com>
+Copyright 2012 Elliott Draper <el@kickcode.com>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
