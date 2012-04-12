@@ -48,6 +48,16 @@ If you are using something other than Rails, or have additional areas outside of
 
 Everything besides the exception itself is optional, with the environment defaulting to "production" if not supplied.
 
+You can also wrap blocks of code that you want to log and handle errors for, such as trapping for exceptions within data migration loops and the like:
+
+  ExceptIO::Client.handle "environment", params_hash, session_hash, "http://request/url" do
+    # some code that may or may not raise an exception
+  end
+
+If the code block raises an exception, it'll be logged (as per your configuration), and the call will return nil.
+
+Everything besides the block is optional, with the environment defaulting to "production" if not supplied.
+
 == REQUIREMENTS:
 
 exceptio-ruby depends upon httparty.
