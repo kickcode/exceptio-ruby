@@ -2,6 +2,8 @@ require "rubygems"
 require "rubygems/package_task"
 require "rdoc/task"
 
+require File.join(File.dirname(__FILE__), "lib", "exceptio")
+
 require "rake/testtask"
 Rake::TestTask.new do |t|
   t.libs << "test"
@@ -14,7 +16,7 @@ task :default => ["test"]
 spec = Gem::Specification.new do |s|
 
   s.name              = "exceptio-ruby"
-  s.version           = "0.1.4"
+  s.version           = ExceptIO::Client::VERSION
   s.summary           = "Ruby client library for the ExceptIO error notification service, with Rails 2.3/Rails 3 hooks"
   s.author            = "Elliott Draper"
   s.email             = "el@kickcode.com"

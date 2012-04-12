@@ -77,7 +77,7 @@ class ClientTest < Test::Unit::TestCase
     response = Net::HTTPOK.new("1.1", 201, "CREATED")
     response.instance_variable_set(:@read, true)
     Net::HTTP.any_instance.expects(:request).with do |request|
-      request.path == "/applications/testing/errors?app_key=12345" && request.method == "POST"
+      request.path == "/applications/testing/errors?app_key=12345" && request.method == "POST" && request.instance_variable_get("@header")["user-agent"] == ["exceptio-ruby #{ExceptIO::Client::VERSION}"]
     end.returns(response)
   end
 

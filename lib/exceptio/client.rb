@@ -4,7 +4,11 @@ module ExceptIO
   class Client
     include HTTParty
 
+    VERSION = "0.1.4"
+
     DEFAULT_IGNORED_EXCEPTIONS = ["ActiveRecord::RecordNotFound", "ActionController::InvalidAuthenticityToken", "ActionController::RoutingError"]
+
+    headers "User-Agent" => "exceptio-ruby #{VERSION}"
 
     def self.configure(application, app_key, endpoint = 'except.io')
       @application = application
