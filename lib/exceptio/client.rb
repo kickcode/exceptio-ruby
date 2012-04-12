@@ -53,5 +53,15 @@ module ExceptIO
       res = self.post("/applications/#{self.application}/errors", {:query => {:app_key => self.app_key}, :body => {:error => {:message => exception.message, :backtrace => exception.backtrace, :type => exception.class.name, :environment => environment, :params => params, :session => session, :request_url => request_url}}})
       res.code == 201
     end
+
+    def self.handle(environment = "production", params = {}, session = {}, request_url = nil, &block)
+      return unless block_given?
+      begin
+        yield
+      rescue
+        ExceptIO::Client.log($!, environment, params, session, request_url)
+        nil
+      end
+    end
   end
 end
