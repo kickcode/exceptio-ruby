@@ -6,7 +6,7 @@ module ExceptIO
       end
     end
 
-    module Rails3
+    module Rails3Plus
       def rescue_to_exceptio(exception = nil)
         ExceptIO::Client.log(exception, Rails.env, params, session, request.url)
         raise exception

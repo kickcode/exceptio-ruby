@@ -4,7 +4,7 @@ module ExceptIO
   class Client
     include HTTParty
 
-    VERSION = "0.1.5"
+    VERSION = "0.1.6"
 
     DEFAULT_IGNORED_EXCEPTIONS = ["ActiveRecord::RecordNotFound", "ActionController::InvalidAuthenticityToken", "ActionController::RoutingError"]
 
@@ -18,8 +18,8 @@ module ExceptIO
       if defined?(Rails)
         if Rails.version.starts_with?("2.3")
           ActionController::Base.send(:include, ExceptIO::Hooks::Rails23)
-        elsif Rails.version.starts_with?("3")
-          ActionController::Base.send(:include, ExceptIO::Hooks::Rails3)
+        elsif Rails::VERSION::MAJOR >= 3
+          ActionController::Base.send(:include, ExceptIO::Hooks::Rails3Plus)
         end
       end
     end
