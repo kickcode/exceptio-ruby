@@ -4,7 +4,7 @@ module ExceptIO
   class Client
     include HTTParty
 
-    VERSION = "0.1.6"
+    VERSION = "0.1.7.pre"
 
     DEFAULT_IGNORED_EXCEPTIONS = ["ActiveRecord::RecordNotFound", "ActionController::InvalidAuthenticityToken", "ActionController::RoutingError"]
 
