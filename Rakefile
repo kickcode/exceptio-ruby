@@ -29,7 +29,7 @@ spec = Gem::Specification.new do |s|
   s.files             = %w(README.rdoc) + Dir.glob("{lib}/**/*")
   s.require_paths     = ["lib"]
 
-  s.add_dependency "httparty", "~> 0.8.1"
+  s.add_dependency "httparty", "> 0.8.1"
 
   s.add_development_dependency "fakeweb", "~> 1.3.0"
   s.add_development_dependency "mocha", "~> 0.10.0"
