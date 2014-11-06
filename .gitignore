@@ -2,4 +2,3 @@
 .rvmrc
 pkg
 rdoc
-*.gemspec
